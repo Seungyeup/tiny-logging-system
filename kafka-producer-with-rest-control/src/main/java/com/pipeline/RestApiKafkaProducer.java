@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PipelineApplication {
+public class RestApiKafkaProducer {
 
     public static void main(String[] args) {
-        SpringApplication.run(PipelineApplication.class, args);
+        SpringApplication.run(RestApiKafkaProducer.class, args);
     }
 
 }
