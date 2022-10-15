@@ -1,5 +1,17 @@
 
-## IntelliJ IDEA ##
+### IntelliJ IDEA ###
+
 # kafka-producer-with-rest-control
 kafka-producer-with-rest-control/.gradle
 kafka-producer-with-rest-control/.idea
+
+# kafka-consumer-for-hdfs
+kafka-consumer-for-hdfs/.gradle
+kafka-consumer-for-hdfs/.idea
+
+# kafka-connector-for-elk
+kafka-connector-for-elk/.gradle
+kafka-connector-for-elk/.idea
+
+### VS Code ###
+.vscode/
