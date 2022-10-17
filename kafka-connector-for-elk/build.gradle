@@ -1,0 +1,27 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.4'
+    id 'io.spring.dependency-management' version '1.0.14.RELEASE'
+    id 'java'
+}
+
+group = 'com.pipeline'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'org.apache.kafka:connect-api:2.5.0'
+    implementation 'org.slf4j:slf4j-simple:1.7.30'
+    implementation 'org.elasticsearch.client:elasticsearch-rest-high-level-client:7.9.2'
+//    implementation 'org.springframework.boot:spring-boot-starter'
+//    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
