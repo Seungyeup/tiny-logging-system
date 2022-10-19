@@ -3,7 +3,8 @@ package com.pipeline;
 import com.pipeline.consumer.ConsumerWorker;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
-import org.codehaus.jackson.map.deser.std.StringDeserializer;
+
+import org.apache.kafka.common.serialization.StringDeserializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
