@@ -12,6 +12,10 @@ repositories {
     mavenCentral()
 }
 
+wrapper {
+    gradleVersion = '5.2.1'
+}
+
 dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'org.apache.kafka:connect-api:2.5.0'

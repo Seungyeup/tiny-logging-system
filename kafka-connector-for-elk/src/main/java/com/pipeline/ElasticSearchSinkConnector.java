@@ -37,8 +37,7 @@ public class ElasticSearchSinkConnector extends SinkConnector {
 
     @Override
     public Class<? extends Task> taskClass() {
-        //return ElasticSearchSinkTask.class;
-        return null;
+        return ElasticSearchSinkTask.class;
     }
 
     @Override
