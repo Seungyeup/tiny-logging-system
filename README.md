@@ -56,24 +56,7 @@ bin/kafka-topics.sh --create \
     - shinhan-mydata-log
 - 토픽 삭제: [local] bin/kafka-topics.sh --delete --zookeeper my-kafka:2181 --topic {토픽명}
 
-
-### 4. test es-sink-connector
-
-curl -L -X POST 'localhost:8083/connectors' \
--H 'Content-Type: application/json' \
---data-raw '{
-    "name": "es-sink-connector",
-    "config": {
-        "connector.class": "com.pipeline.ElasticSearchSinkConnector",
-        "topics": "shinhan-mydata-log",
-        "es.host": "localhost",
-        "es.port": "9200",
-        "es.index": "kafka-to-es"
-    }
-}'
-
-
-### 5. 동작상태 확인
+### 4. 동작상태 확인
 
 1. 웹페이지.html open
 2. Restful producer 실행
@@ -86,12 +69,25 @@ curl -L -X POST 'localhost:8083/connectors' \
         - config/connect-distributed.properties 파일 수정한다.
     - 분산 모드 커넥트 실행
         - bin/connect-distributed.sh config/connect-distributed.properties
-    - 실행확인
+    - 분산 모드 커넥트 실행확인
         - curl http://localhost:8083/connector-plugins 
         - ~ 말고, /Users/lsy/kafka_for_logging 처럼 루트부터 경로 주자. ES 커넥터 추가 안되서 삽질 한참 함
         [shutdown] : ps aux | grep ConnectDistributed
         (https://docs.confluent.io/kafka-connectors/self-managed/userguide.html#shutting-down-kconnect-long)
-
-
+    - 엘라스틱 서치 싱크 커넥터 실행
+    curl -L -X POST 'localhost:8083/connectors' \
+    -H 'Content-Type: application/json' \
+    --data-raw '{
+        "name": "es-sink-connector",
+        "config": {
+            "connector.class": "com.pipeline.ElasticSearchSinkConnector",
+            "topics": "shinhan-mydata-log",
+            "es.host": "localhost",
+            "es.port": "9200",
+            "es.index": "kafka-to-es"
+        }
+    }'
+    - 커넥터 실행 확인
+        - curl -X GET http://localhost:8083/connectors
 5. elasticsearch 실행
     - elasticsearch
