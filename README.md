@@ -1,6 +1,11 @@
 # tiny-logging-system
 toy project for mydata logging system
 
+1. Hadoop fs.defaultFS 옵션값 변경
+    - core-site.xml
+    - 
+    hadoop version : hadoop version
+    core-site.xml location : 
 
 1. zoo-keeper, kafka broker 실행
 - bin/kafka-server-start.sh -daemon config/server.properties
