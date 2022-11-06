@@ -27,7 +27,7 @@ bin/kafka-topics.sh --create \
 - 토픽 확인: bin/kafka-topics.sh --list --bootstrap-server my-kafka:9092
 - 토픽 삭제: bin/kafka-topics.sh --delete --zookeeper my-kafka:2181 --topic {토픽명}
 
-3. 
+3. test es-sink-connector
 
 curl -L -X POST 'localhost:8083/connectors' \
 -H 'Content-Type: application/json' \
