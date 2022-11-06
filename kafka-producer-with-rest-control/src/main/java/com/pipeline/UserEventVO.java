@@ -13,4 +13,5 @@ public class UserEventVO {
         this.timestamp = cus_no;
         this.timestamp = log_type;
     }
+
 }
