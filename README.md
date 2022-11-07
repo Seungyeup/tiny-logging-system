@@ -1,7 +1,10 @@
 # tiny-logging-system
 toy project for mydata logging system
 
+
+
 ### 1. 하둡 옵션값 설정, 실행
+
 1-1. Hadoop fs.defaultFS 옵션값 변경
     - core-site.xml
     - 
@@ -28,13 +31,17 @@ $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 1-4. Hadoop 동작 확인
     - jps로 상태확인
 
+
+
 ### 2. 카프가 동작상태 확인
+
 kafka local dir: /Users/lsy/kafka_for_logging
 kafka remote dir: ~/kafka_2.12-2.5.0
 
 2-1.  zoo-keeper, kafka broker 실행
 - 카프카 브로커 실행: [kafka-broker] bin/kafka-server-start.sh -daemon config/server.properties
 - 카프카 API 버전, 목록 확인: [local] bin/kafka-broker-api-versions.sh --bootstrap-server my-kafka:9092
+
 
 
 ### 3. 카프카 프로커에 토픽 생성
@@ -56,11 +63,15 @@ bin/kafka-topics.sh --create \
     - shinhan-mydata-log
 - 토픽 삭제: [local] bin/kafka-topics.sh --delete --zookeeper my-kafka:2181 --topic {토픽명}
 
+
+
 ### 4. 동작상태 확인
 
 1. 웹페이지.html open
 2. Restful producer 실행
 3. Hadoop 적재 컨슈머 실행
+    - hadoop hdfs 실행 /usr/local/Cellar/hadoop/3.3.4/libexec/sbin/start-all.sh
+    - 적재 컨슈머 실행
 4. 분산모드 카프카 커넥트 실행
     - es 싱크 커넥터 jar 파일 생성, jar 파일 이동
         - from : /Users/lsy/Desktop/tiny-logging-system/kafka-connector-for-elk/build/libs/pipeline-0.0.2-SNAPSHOT.jar 
