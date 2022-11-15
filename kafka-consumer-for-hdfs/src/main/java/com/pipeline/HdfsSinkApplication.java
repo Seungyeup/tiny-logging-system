@@ -23,7 +23,7 @@ public class HdfsSinkApplication {
     // 카프카 클러스터 INFO
     private final static String BOOTSTRAP_SERVERS = "my-kafka:9092";        // 서버
     private final static String TOPIC_NAME = "shinhan-mydata-log";          // 토픽
-    private final static String GROUP_ID = "log-hdfs-save-consummer-group"; // 컨슈머그룹
+    private final static String GROUP_ID = "log-hdfs-save-consumer-group"; // 컨슈머그룹
 
     // 생성할 Thread 개수를 변수로 선언. 나중에 파티션이 늘어나는 경우 -> 이에 맞추어 컨슈머 스레드를 동적으로 운영한다.
     private final static int CONSUMER_COUNT = 3;
@@ -38,6 +38,7 @@ public class HdfsSinkApplication {
         configs.put(ConsumerConfig.GROUP_ID_CONFIG, GROUP_ID);
         configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+        logger.info(configs.toString());
 
         // 컨슈머 스레드를 관리하기 위한 스레드 풀
         ExecutorService executorService = Executors.newCachedThreadPool();

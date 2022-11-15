@@ -89,10 +89,10 @@ public class ConsumerWorker implements Runnable{
     private void save(int partitionNo) {
         if (bufferString.get(partitionNo).size() > 0){
             try {
-                String fileName = "/data/color-" + partitionNo + "-" + currentFileOffset.get(partitionNo) + ".log";
-
+                String fileName = "/data/log-" + partitionNo + "-" + currentFileOffset.get(partitionNo) + ".log";
+                logger.info(fileName);
                 Configuration configuration = new Configuration();
-                configuration.set("fs.defaultFS", "hdfs://localhost:9090");
+                configuration.set("fs.defaultFS", "hdfs://localhost:9000");
                 FileSystem hdfsFileSystem = FileSystem.get(configuration);
                 FSDataOutputStream fileOutputStream = hdfsFileSystem.create(new Path(fileName));
 

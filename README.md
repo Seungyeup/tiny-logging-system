@@ -7,7 +7,6 @@ toy project for mydata logging system
 
 1-1. Hadoop fs.defaultFS 옵션값 변경
     - core-site.xml
-    - 
     hadoop version : hadoop version
     core-site.xml location : /usr/local/Cellar/hadoop/3.3.4/libexec/etc/hadoop
 
@@ -17,6 +16,9 @@ toy project for mydata logging system
 1-3. Hadoop 실행
     - /usr/local/Cellar/hadoop/3.3.4/libexec/sbin/start-dfs.sh
     - (https://key4920.github.io/docs/bigdata_platform/Hadoop/hadoop_install/)
+
+https://medium.com/beeranddiapers/installing-hadoop-on-mac-a9a3649dbc4d
+
 
 (permission error의 경우, 클러스터를 구성하지 않고 독립 실행 모드로 실행해서 그렇다)
 
@@ -81,11 +83,13 @@ bin/kafka-topics.sh --create \
     - 분산 모드 커넥트 실행
         - bin/connect-distributed.sh config/connect-distributed.properties
     - 분산 모드 커넥트 실행확인
-        - curl http://localhost:8083/connector-plugins 
+        - `curl http://localhost:8083/connector-plugins`
         - ~ 말고, /Users/lsy/kafka_for_logging 처럼 루트부터 경로 주자. ES 커넥터 추가 안되서 삽질 한참 함
         [shutdown] : ps aux | grep ConnectDistributed
         (https://docs.confluent.io/kafka-connectors/self-managed/userguide.html#shutting-down-kconnect-long)
     - 엘라스틱 서치 싱크 커넥터 실행
+
+    ```json
     curl -L -X POST 'localhost:8083/connectors' \
     -H 'Content-Type: application/json' \
     --data-raw '{
@@ -98,6 +102,8 @@ bin/kafka-topics.sh --create \
             "es.index": "kafka-to-es"
         }
     }'
+    ```
+    
     - 커넥터 실행 확인
         - curl -X GET http://localhost:8083/connectors
 5. elasticsearch 실행
