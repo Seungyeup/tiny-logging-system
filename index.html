@@ -5,12 +5,13 @@
     <title>this is toy project for tiny logging system</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        function selectLog(log_type) {
+        function selectedLog(log_type) {
             if($("#cus_no").val().length == 0){
                 alert("고객번호를 입력하세요")
             }else{
                 var url = 'http://localhost:8080/api/select?log_type=' + log_type + '&cus_no=' + $("#cus_no").val();
                 $.get(url)
+                console.log(url)
             }
         }
     </script>

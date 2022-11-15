@@ -33,8 +33,9 @@ public class RestApiKafkaController {
         Date now = new Date();
         Gson gson = new Gson();
         UserEventVO userEventVO = new UserEventVO(sdfDate.format(now), userAgentName, logType, cusNo );
-
         String jsonEventLog = gson.toJson(userEventVO);
+        logger.info(jsonEventLog);
+
         kafkaTemplate.send("shinhan-mydata-log", jsonEventLog).addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
             @Override
             public void onFailure(Throwable ex) {
