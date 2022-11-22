@@ -1,3 +1,4 @@
+# spring kafka 에서 사용할 클러스터 정보, 직렬화방식, 옵션 설정
 spring:
   kafka:
     bootstrap-servers: my-kafka:9092
